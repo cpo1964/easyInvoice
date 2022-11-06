@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="invoice_czone_preprinted_a5_fanfold" pageWidth="595" pageHeight="842" whenNoDataType="NoDataSection" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isFloatColumnFooter="true">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="CURR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="TEXTBLOCK1" class="java.lang.String"/>
+	<parameter name="TEXTBLOCK2" class="java.lang.String"/>
+	<parameter name="TEXTBLOCK3" class="java.lang.String"/>
+	<parameter name="TEXTBLOCK4" class="java.lang.String"/>
+	<parameter name="LBL_SENDER_UID" class="java.lang.String"/>
+	<parameter name="SENDER_UID" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="LBL_SENDER_TAXNR" class="java.lang.String"/>
+	<parameter name="SENDER_TAXNR" class="java.lang.String"/>
+	<parameter name="SENDER_TITLE" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SENDER_FIRST_NAME" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SENDER_LAST_NAME" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SENDER_ADR_STREET" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SENDER_ADR_HOUSENR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SENDER_ADR_COUNTRYCODE" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SENDER_ADR_PLZ" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SENDER_ADR_CITY" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="LBL_RECEIVER" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="LBL_RECEIVER_UID" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RECEIVER_UID" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RECEIVER_TITLE" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RECEIVER_FIRST_NAME" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RECEIVER_LAST_NAME" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RECEIVER_ADR_STREET" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RECEIVER_ADR_HOUSENR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RECEIVER_ADR_COUNTRYCODE" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RECEIVER_ADR_PLZ" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RECEIVER_ADR_CITY" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="INV_NO" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="INV_DATE" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="LBL_PAY_UNTIL" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="TXT_PAY_UNTIL" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="TOTAL" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="TOTAL_TAX" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="TOTAL_AMT" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="LBL_INV" class="java.lang.String"/>
+	<parameter name="LBL_INV_NR" class="java.lang.String"/>
+	<parameter name="TXT_INV_NR" class="java.lang.String"/>
+	<parameter name="LBL_INV_DATE" class="java.lang.String"/>
+	<parameter name="TXT_INV_DATE" class="java.lang.String"/>
+	<parameter name="TAX1" class="java.lang.String"/>
+	<parameter name="TAX1_AMT" class="java.lang.String"/>
+	<parameter name="TAX1_TAX" class="java.lang.String"/>
+	<parameter name="TAX2" class="java.lang.String"/>
+	<parameter name="TAX2_AMT" class="java.lang.String"/>
+	<parameter name="TAX2_TAX" class="java.lang.String"/>
+	<parameter name="TAX3" class="java.lang.String"/>
+	<parameter name="TAX3_AMT" class="java.lang.String"/>
+	<parameter name="TAX3_TAX" class="java.lang.String"/>
+	<parameter name="LBL_UID" class="java.lang.String"/>
+	<parameter name="TXT_UID" class="java.lang.String"/>
+	<parameter name="LBL_TAXNR" class="java.lang.String"/>
+	<parameter name="TXT_TAXNR" class="java.lang.String"/>
+	<parameter name="TXT_FROM_ADRESS" class="java.lang.String"/>
+	<parameter name="SENDER_BANK_NAME" class="java.lang.String"/>
+	<parameter name="SENDER_BANK_ACCOUNT_NR" class="java.lang.String"/>
+	<parameter name="LBL_SENDER_BANK" class="java.lang.String"/>
+	<parameter name="LBL_SENDER_BANK_ACCOUNT_NR" class="java.lang.String"/>
+	<parameter name="LBL_SENDER_BANK_BLZ" class="java.lang.String"/>
+	<parameter name="LBL_SENDER_BANK_BIC" class="java.lang.String"/>
+	<parameter name="LBL_SENDER_BANK_IBAN" class="java.lang.String"/>
+	<parameter name="SENDER_BANK_BLZ" class="java.lang.String"/>
+	<parameter name="SENDER_BANK_IBAN" class="java.lang.String"/>
+	<parameter name="SENDER_BANK_BIC" class="java.lang.String"/>
+	<parameter name="SENDER_PHONE_TYPE" class="java.lang.String"/>
+	<parameter name="SENDER_PHONE_CALLNR" class="java.lang.String"/>
+	<parameter name="LBL_POS_NR" class="java.lang.String"/>
+	<parameter name="LBL_POS_AMOUNT" class="java.lang.String"/>
+	<parameter name="LBL_POS_UNIT" class="java.lang.String"/>
+	<parameter name="LBL_POS_DESCRIPTION" class="java.lang.String"/>
+	<parameter name="LBL_TAX" class="java.lang.String"/>
+	<parameter name="LBL_POS_UNITPRICE" class="java.lang.String"/>
+	<parameter name="LBL_TOTAL" class="java.lang.String"/>
+	<parameter name="LBL_FROM" class="java.lang.String"/>
+	<parameter name="LBL_NETTO" class="java.lang.String"/>
+	<parameter name="RECEIVER_PHONE_TYPE" class="java.lang.String"/>
+	<parameter name="RECEIVER_PHONE_CALLNR" class="java.lang.String"/>
+	<field name="pos_quantity" class="java.lang.String"/>
+	<field name="article_unit" class="java.lang.String"/>
+	<field name="article_description" class="java.lang.String"/>
+	<field name="article_tax" class="java.lang.String"/>
+	<field name="article_unit_price" class="java.lang.String"/>
+	<field name="pos_amount" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band/>
+	</title>
+	<pageHeader>
+		<band height="222" splitType="Prevent">
+			<textField>
+				<reportElement x="27" y="34" width="528" height="18"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($P{SENDER_TITLE}+" "+$P{SENDER_FIRST_NAME}+" "+$P{SENDER_LAST_NAME}).trim()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="27" y="52" width="528" height="13"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($P{LBL_SENDER_UID}+": "+$P{SENDER_UID}+", "+$P{LBL_SENDER_TAXNR}+": "+$P{SENDER_TAXNR}).trim()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement key="line-1" x="23" y="67" width="532" height="1"/>
+			</line>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" mode="Transparent" x="293" y="70" width="262" height="11"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{SENDER_ADR_STREET}+$P{SENDER_ADR_HOUSENR}+", "+
+					$P{SENDER_ADR_COUNTRYCODE}+"-"+$P{SENDER_ADR_PLZ}+" "+$P{SENDER_ADR_CITY}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" mode="Transparent" x="27" y="128" width="150" height="11"/>
+				<textElement>
+					<font size="8" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{LBL_RECEIVER}+":"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" mode="Transparent" x="27" y="147" width="266" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($P{RECEIVER_TITLE}+" "+$P{RECEIVER_FIRST_NAME}+" "+$P{RECEIVER_LAST_NAME}).trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" mode="Transparent" x="27" y="158" width="266" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{LBL_RECEIVER_UID}+": "+$P{RECEIVER_UID}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" mode="Transparent" x="27" y="170" width="266" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{RECEIVER_ADR_STREET}+" "+$P{RECEIVER_ADR_HOUSENR}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" mode="Transparent" x="27" y="182" width="266" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{RECEIVER_ADR_COUNTRYCODE}+"-"+
+					$P{RECEIVER_ADR_PLZ}+" "+$P{RECEIVER_ADR_CITY}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="315" y="128" width="240" height="38"/>
+				<textElement textAlignment="Right">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{LBL_INV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="407" y="166" width="80" height="13"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{LBL_INV_NR}+":"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="487" y="166" width="68" height="13"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{TXT_INV_NR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="407" y="180" width="80" height="13"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{LBL_INV_DATE}+":"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" mode="Transparent" x="487" y="180" width="68" height="13" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{TXT_INV_DATE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" mode="Transparent" x="293" y="81" width="262" height="11"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{SENDER_PHONE_TYPE}+": "+$P{SENDER_PHONE_CALLNR}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" mode="Transparent" x="27" y="193" width="266" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{RECEIVER_PHONE_TYPE}+": "+$P{RECEIVER_PHONE_CALLNR}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Prevent">
+			<rectangle>
+				<reportElement x="27" y="13" width="528" height="12" backcolor="#E9E8E8"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<line>
+				<reportElement key="line-2" x="27" y="13" width="528" height="1"/>
+			</line>
+			<textField isBlankWhenNull="false">
+				<reportElement key="staticText-1" x="27" y="0" width="528" height="13"/>
+				<textElement>
+					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{TEXTBLOCK1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" mode="Transparent" x="27" y="14" width="18" height="12"/>
+				<textElement textAlignment="Center">
+					<font size="8" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{LBL_POS_NR}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" mode="Transparent" x="45" y="14" width="35" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="8" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{LBL_POS_AMOUNT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" mode="Transparent" x="83" y="14" width="49" height="12"/>
+				<textElement>
+					<font size="8" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{LBL_POS_UNIT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" mode="Transparent" x="135" y="14" width="228" height="12"/>
+				<textElement>
+					<font size="8" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{LBL_POS_DESCRIPTION}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" mode="Transparent" x="457" y="14" width="98" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="8" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{LBL_TOTAL}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" mode="Transparent" x="407" y="14" width="50" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="8" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{LBL_POS_UNITPRICE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" mode="Transparent" x="366" y="14" width="41" height="12"/>
+				<textElement>
+					<font size="8" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{LBL_TAX}+" %"]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Prevent">
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-5" x="27" y="0" width="18" height="15"/>
+				<box leftPadding="3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement key="staticText-36" x="45" y="0" width="35" height="15"/>
+				<box leftPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{pos_quantity}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+				<reportElement key="textField" x="80" y="0" width="52" height="15"/>
+				<box leftPadding="3"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{article_unit}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+				<reportElement key="textField" x="132" y="0" width="231" height="15"/>
+				<box leftPadding="3"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{article_description}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="staticText-36" x="363" y="0" width="44" height="15"/>
+				<box leftPadding="3"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{article_tax}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement key="staticText-36" x="407" y="0" width="50" height="15"/>
+				<box leftPadding="3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{CURR}+" "+$F{article_unit_price}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="staticText-36" x="457" y="0" width="98" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{CURR}+" "+$F{pos_amount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="319" splitType="Prevent">
+			<line>
+				<reportElement x="27" y="0" width="528" height="1"/>
+			</line>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" x="457" y="37" width="98" height="14"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{TOTAL_AMT}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="27" y="4" width="264" height="11" backcolor="#E9E8E8"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<line>
+				<reportElement key="line-3" x="27" y="0" width="528" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement key="line-3" x="437" y="36" width="122" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<textField isBlankWhenNull="false">
+				<reportElement key="staticText-36" x="457" y="8" width="98" height="14"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{TOTAL}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="staticText-36" x="457" y="22" width="98" height="14"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{TOTAL_TAX}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="staticText-9" x="293" y="57" width="114" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{LBL_PAY_UNTIL}+":"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="staticText-9" x="407" y="57" width="48" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{TXT_PAY_UNTIL}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="staticText-9" x="457" y="57" width="98" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{CURR}+" "+$P{TOTAL_AMT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="27" y="15" width="53" height="53"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{TAX1}+"\n"+$P{TAX2}+"\n"+$P{TAX3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="15" width="123" height="53"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{CURR}+" "+$P{TAX1_AMT}+"\n"+$P{CURR}+" "+$P{TAX2_AMT}+"\n"+$P{CURR}+" "+$P{TAX3_AMT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="203" y="15" width="88" height="53"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{CURR}+" "+$P{TAX1_TAX}+"\n"+$P{CURR}+" "+$P{TAX2_TAX}+"\n"+$P{CURR}+" "+$P{TAX3_TAX}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="staticText-1" x="27" y="79" width="528" height="112"/>
+				<textElement>
+					<font size="10" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{TEXTBLOCK2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" mode="Transparent" x="27" y="4" width="53" height="11"/>
+				<textElement textAlignment="Right">
+					<font size="8" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{LBL_TAX}+" %"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" mode="Transparent" x="203" y="4" width="88" height="11"/>
+				<textElement textAlignment="Right">
+					<font size="8" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{LBL_TAX}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" mode="Transparent" x="80" y="4" width="123" height="11"/>
+				<textElement textAlignment="Right">
+					<font size="8" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{LBL_FROM}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" mode="Transparent" x="373" y="22" width="82" height="14"/>
+				<textElement textAlignment="Right">
+					<font size="10" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{LBL_TAX}+" "+$P{CURR}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" mode="Transparent" x="373" y="37" width="82" height="14"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="true" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{LBL_TOTAL}+" "+$P{CURR}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" mode="Transparent" x="373" y="8" width="82" height="14"/>
+				<textElement textAlignment="Right">
+					<font size="10" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{LBL_NETTO}+" "+$P{CURR}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band/>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="51" splitType="Stretch">
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" mode="Transparent" x="23" y="17" width="532" height="12"/>
+				<textElement>
+					<font size="8" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{SENDER_BANK_NAME}+", "+$P{LBL_SENDER_BANK_BLZ}+": "+$P{SENDER_BANK_BLZ}+", "+$P{LBL_SENDER_BANK_ACCOUNT_NR}+": "+$P{SENDER_BANK_ACCOUNT_NR}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" mode="Transparent" x="23" y="5" width="528" height="13"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{LBL_SENDER_BANK}+":"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" mode="Transparent" x="23" y="29" width="532" height="11"/>
+				<textElement>
+					<font size="8" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{LBL_SENDER_BANK_IBAN}+": "+$P{SENDER_BANK_IBAN}+", "+$P{LBL_SENDER_BANK_BIC}+": "+$P{SENDER_BANK_BIC}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement key="line-1" x="23" y="4" width="532" height="1"/>
+			</line>
+		</band>
+	</lastPageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

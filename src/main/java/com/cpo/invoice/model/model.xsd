@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<schema xmlns:tns='com.cpo.invoice.model'
+        xmlns='http://www.w3.org/2001/XMLSchema'
+        targetNamespace='com.cpo.invoice.model'
+        elementFormDefault='qualified'>
+	<element name='iNVOICE' type='tns:INVOICE'/>
+    <complexType name='INVOICE'>
+        <sequence> 
+            <element name='iNVOICE' type='integer' minOccurs='0' maxOccurs='unbounded'/>
+            <element name='serialVersionUID' type='long'/>
+            <element name='id' type='integer' minOccurs='0'/>
+            <element name='sENDER' type='integer' minOccurs='0'/>
+            <element name='rECEIVER' type='integer' minOccurs='0'/>
+            <element name='NR' type='string' minOccurs='0'/>
+            <element name='PAY_UNTIL' type='string' minOccurs='0'/>
+            <element name='TAX1' type='string' minOccurs='0'/>
+            <element name='TAX2' type='string' minOccurs='0'/>
+            <element name='TAX3' type='string' minOccurs='0'/>
+            <element name='CURRENCY' type='string' minOccurs='0'/>
+            <element name='LANGUAGE' type='string' minOccurs='0'/>
+            <element name='tEXTBLOCK' type='integer' minOccurs='0' maxOccurs='unbounded'/>
+            <element name='DAO_CLASS' type='INVOICEDAO' minOccurs='0'/>
+        </sequence>
+    </complexType>
+
+	<element name='iNVOICE_POSITION' type='tns:INVOICE_POSITION'/>
+    <complexType name='INVOICE_POSITION'>
+        <sequence> 
+            <element name='serialVersionUID' type='long'/>
+            <element name='id' type='integer' minOccurs='0'/>
+            <element name='NR' type='string' minOccurs='0'/>
+            <element name='QUANTITY' type='string' minOccurs='0'/>
+            <element name='AMOUNT' type='string' minOccurs='0'/>
+            <element name='INVOICE_ID' type='integer' minOccurs='0'/>
+            <element name='aRTICLE' type='integer' minOccurs='0'/>
+            <element name='DAO_CLASS' type='INVOICE_POSITIONDAO' minOccurs='0'/>
+        </sequence>
+    </complexType>
+
+	<element name='cUSTOMER' type='tns:CUSTOMER'/>
+    <complexType name='CUSTOMER'>
+        <sequence> 
+            <element name='NAME' type='string' minOccurs='0'/>
+            <element name='LASTNAME' type='string' minOccurs='0'/>
+            <element name='UID' type='string' minOccurs='0'/>
+            <element name='TITLE' type='string' minOccurs='0'/>
+            <element name='serialVersionUID' type='long'/>
+            <element name='id' type='integer' minOccurs='0'/>
+            <element name='SENDER' type='string' minOccurs='0'/>
+            <element name='TAXNR' type='string' minOccurs='0'/>
+            <element name='invoicePhone' type='integer' minOccurs='0'/>
+            <element name='invoiceAdress' type='integer' minOccurs='0'/>
+            <element name='invoiceBank' type='integer' minOccurs='0'/>
+            <element name='DAO_CLASS' type='CUSTOMERDAO' minOccurs='0'/>
+        </sequence>
+    </complexType>
+
+	<element name='tEXTBLOCK' type='tns:TEXTBLOCK'/>
+    <complexType name='TEXTBLOCK'>
+        <sequence> 
+            <element name='NR' type='string' minOccurs='0'/>
+            <element name='DESCRIBER' type='string' minOccurs='0'/>
+            <element name='TEXT' type='string' minOccurs='0'/>
+            <element name='INVOICE_ID' type='string' minOccurs='0'/>
+            <element name='serialVersionUID' type='long'/>
+            <element name='id' type='integer' minOccurs='0'/>
+            <element name='DAO_CLASS' type='TEXTBLOCKDAO' minOccurs='0'/>
+        </sequence>
+    </complexType>
+
+	<element name='aRTICLE' type='tns:ARTICLE'/>
+    <complexType name='ARTICLE'>
+        <sequence> 
+            <element name='DESCRIPTION' type='string' minOccurs='0'/>
+            <element name='UNIT' type='string' minOccurs='0'/>
+            <element name='UNIT_PRICE' type='string' minOccurs='0'/>
+            <element name='TAX' type='string' minOccurs='0'/>
+            <element name='serialVersionUID' type='long'/>
+            <element name='id' type='integer' minOccurs='0'/>
+            <element name='DAO_CLASS' type='ARTICLEDAO' minOccurs='0'/>
+        </sequence>
+    </complexType>
+
+	<element name='tELEPHONE' type='tns:TELEPHONE'/>
+    <complexType name='TELEPHONE'>
+        <sequence> 
+            <element name='NR' type='string' minOccurs='0'/>
+            <element name='TYPE' type='string' minOccurs='0'/>
+            <element name='CALL_NR' type='string' minOccurs='0'/>
+            <element name='CUSTOMER_ID' type='integer' minOccurs='0'/>
+            <element name='serialVersionUID' type='long'/>
+            <element name='id' type='integer' minOccurs='0'/>
+            <element name='DAO_CLASS' type='TELEPHONEDAO' minOccurs='0'/>
+        </sequence>
+    </complexType>
+
+	<element name='aDRESS' type='tns:ADRESS'/>
+    <complexType name='ADRESS'>
+        <sequence> 
+            <element name='STREET' type='string' minOccurs='0'/>
+            <element name='HOUSENR' type='string' minOccurs='0'/>
+            <element name='COUNTRYCODE' type='string' minOccurs='0'/>
+            <element name='PLZ' type='string' minOccurs='0'/>
+            <element name='CITY' type='string' minOccurs='0'/>
+            <element name='CUSTOMER_ID' type='integer' minOccurs='0'/>
+            <element name='serialVersionUID' type='long'/>
+            <element name='id' type='integer' minOccurs='0'/>
+            <element name='DAO_CLASS' type='ADRESSDAO' minOccurs='0'/>
+        </sequence>
+    </complexType>
+
+	<element name='bANK' type='tns:BANK'/>
+    <complexType name='BANK'>
+        <sequence> 
+            <element name='NAME' type='string' minOccurs='0'/>
+            <element name='ACCOUNT_NR' type='string' minOccurs='0'/>
+            <element name='BLZ' type='string' minOccurs='0'/>
+            <element name='IBAN' type='string' minOccurs='0'/>
+            <element name='BIC' type='string' minOccurs='0'/>
+            <element name='CUSTOMER_ID' type='integer' minOccurs='0'/>
+            <element name='serialVersionUID' type='long'/>
+            <element name='id' type='integer' minOccurs='0'/>
+            <element name='bankAdress' type='integer' minOccurs='0'/>
+            <element name='DAO_CLASS' type='BANKDAO' minOccurs='0'/>
+        </sequence>
+    </complexType>
+
+	<element name='sETTINGS' type='tns:SETTINGS'/>
+    <complexType name='SETTINGS'>
+        <sequence> 
+            <element name='BOOKING_YEAR' type='string' minOccurs='0'/>
+            <element name='TAX1' type='string' minOccurs='0'/>
+            <element name='TAX2' type='string' minOccurs='0'/>
+            <element name='TAX3' type='string' minOccurs='0'/>
+            <element name='CURRENCY' type='string' minOccurs='0'/>
+            <element name='LANGUAGE' type='string' minOccurs='0'/>
+            <element name='serialVersionUID' type='long'/>
+            <element name='id' type='integer' minOccurs='0'/>
+            <element name='DAO_CLASS' type='SETTINGSDAO' minOccurs='0'/>
+        </sequence>
+    </complexType>
+
+</schema>
