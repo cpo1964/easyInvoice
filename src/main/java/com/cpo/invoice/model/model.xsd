@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<schema xmlns:tns='com.cpo.invoice.model'
+<!-- schema xmlns:tns='com.cpo.invoice.model' 
         xmlns='http://www.w3.org/2001/XMLSchema'
         targetNamespace='com.cpo.invoice.model'
         elementFormDefault='qualified'>
@@ -141,3 +141,4 @@
     </complexType>
 
 </schema>
+-->
