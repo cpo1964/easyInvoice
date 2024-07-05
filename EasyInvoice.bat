@@ -1,0 +1,1 @@
+C:\Data\Java\openlogic-openjdk-11.0.23+9-windows-x64\bin\java -jar EasyInvoiceMaven.jar

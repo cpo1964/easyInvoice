@@ -1,0 +1,1 @@
+select * from BILL.TB_SETTINGS;

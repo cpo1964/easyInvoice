@@ -2,8 +2,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>easyInvoice.2011.maven</groupId>
-	<artifactId>easyInvoice.2011.maven</artifactId>
+	<groupId>easyInvoice.maven</groupId>
+	<artifactId>easyInvoice.maven</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
@@ -82,7 +82,7 @@
                     <configuration>
                         <target>
                             <echo>ANT TASK - copying files....</echo>
-							<copy file="${basedir}/target/easyInvoice.2011.maven-0.0.1-SNAPSHOT-jar-with-dependencies.jar" 
+							<copy file="${basedir}/target/easyInvoice.maven-0.0.1-SNAPSHOT-jar-with-dependencies.jar" 
 								tofile="${basedir}/EasyInvoiceMaven.jar" overwrite="true"> 
                             </copy>
                         </target>
