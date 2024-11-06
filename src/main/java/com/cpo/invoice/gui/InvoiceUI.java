@@ -25,7 +25,6 @@ import com.cpo.invoice.control.SettingsControl;
 import com.cpo.invoice.util.ResourceHelper;
 import com.cpo.invoice.util.StringHelper;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class InvoiceUI.
  */

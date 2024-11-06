@@ -133,8 +133,7 @@ public class HibernateHelper {
 	 */
 	public org.hibernate.Session getSession()
 			throws org.hibernate.HibernateException {
-				org.hibernate.Session session = (org.hibernate.Session) currentSession
-						.get();
+				org.hibernate.Session session = (org.hibernate.Session) currentSession.get();
 				if (session == null || !session.isOpen()) {
 					session = openSession();
 					currentSession.set(session);
@@ -149,8 +148,7 @@ public class HibernateHelper {
 	 * @generated 
 	 */
 	public void closeSession() throws org.hibernate.HibernateException {
-		org.hibernate.Session session = (org.hibernate.Session) currentSession
-				.get();
+		org.hibernate.Session session = (org.hibernate.Session) currentSession.get();
 		if (session != null && session.isOpen()) {
 			session.close();
 		}

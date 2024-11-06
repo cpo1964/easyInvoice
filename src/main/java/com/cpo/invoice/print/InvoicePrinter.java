@@ -1,42 +1,29 @@
 package com.cpo.invoice.print;
 
-/**
- * This Program is a small example for how to use Jasperreports
- * 
- * Copyright (C) 2006 Alexander Merz
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 2
- * of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
- */
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
 import org.apache.log4j.Logger;
-
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.data.JRMapCollectionDataSource;
-import net.sf.jasperreports.view.JasperViewer;
 
 import com.cpo.invoice.control.AdressControl;
 import com.cpo.invoice.gui.InvoiceUI;
 import com.cpo.invoice.gui.SettingsHelper;
 import com.cpo.invoice.model.INVOICE;
 
-// TODO: Auto-generated Javadoc
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.data.JRMapCollectionDataSource;
+import net.sf.jasperreports.view.JasperViewer;
+
 /**
  * The Class InvoicePrinter.
  */
@@ -55,29 +42,58 @@ public final class InvoicePrinter {
 		super();
 	}
 
+	public static void writeStringUsingBufferedWritter(String str) throws IOException {
+		BufferedWriter writer = new BufferedWriter(new FileWriter("Invoice_A4.jrxml"));
+		writer.write(str);
+		writer.close();
+	}
+
 	/**
 	 * Gets the jasper print.
 	 *
 	 * @param compiledReport the compiled report
-	 * @param parameter the parameter
-	 * @param dataSource the data source
+	 * @param parameter      the parameter
+	 * @param dataSource     the data source
 	 * @return the jasper print
 	 */
-	private static JasperPrint getJasperPrint(
-			final InputStream compiledReport,
-			final HashMap<String, String> parameter,
+	private static JasperPrint getJasperPrint(final InputStream compiledReport, final HashMap<String, String> parameter,
 			final JRMapCollectionDataSource dataSource) {
 		JasperPrint jasperPrint = null;
 		try {
-			// use report template (compile it first)
-//			String template = "src/invoice/Invoice_A4.jrxml";
-//			JasperReport jasperReport = JasperCompileManager.compileReport(template);
-//			jasperPrint =
-//				JasperFillManager.fillReport(jasperReport, parameter,dataSource);
+			if (compiledReport == null) {
+				// use report template (compile it first)
+				String template = "/com/cpo/invoice/print/Invoice_A4.jrxml";
+				String stream = template;
+				final InvoicePrinter pr = new InvoicePrinter();
+				InputStream inputStream = pr.getClass().getResourceAsStream(stream);
+				if (inputStream == null) {
+					stream = "src" + template;
+					inputStream = pr.getClass().getResourceAsStream(stream);
+				}
 
-			// use compiled report
-			jasperPrint =
-				JasperFillManager.fillReport(compiledReport, parameter, dataSource);
+				String report = "";
+				try {
+					InputStreamReader streamReader = new InputStreamReader(inputStream, "UTF-8");
+					BufferedReader in = new BufferedReader(streamReader);
+
+					for (String line; (line = in.readLine()) != null;) {
+						report += new String(line);
+					}
+					System.out.print(report);
+
+					writeStringUsingBufferedWritter(report);
+					
+					String jasperReport = JasperCompileManager.compileReportToFile("Invoice_A4.jrxml");
+//					JasperReport jasperReport = JasperCompileManager.compileReport(report);
+					jasperPrint = JasperFillManager.fillReport(jasperReport, parameter, dataSource);
+				} catch (IOException e) {
+					return null;
+				}
+			} else {
+				// use compiled report
+				jasperPrint = JasperFillManager.fillReport(compiledReport, parameter, dataSource);
+
+			}
 
 //			 fill report from DB
 //			try {
@@ -111,25 +127,24 @@ public final class InvoicePrinter {
 		SettingsHelper.setBundle(pInvoice.getLANGUAGE());
 		final InvoicePrinter pr = new InvoicePrinter();
 		String stream = STREAM_INVOICE_A4_JASPER;
-		InputStream report =
-			pr.getClass().getResourceAsStream(stream);
+		InputStream report = pr.getClass().getResourceAsStream(stream);
 		if (report == null) {
 			stream = "src" + STREAM_INVOICE_A4_JASPER;
-			report =
-				pr.getClass().getResourceAsStream(stream);
+			report = pr.getClass().getResourceAsStream(stream);
 		}
-		if (report == null) {
-			log.error("stream not found: " + STREAM_INVOICE_A4_JASPER);
-			return;
-		}
-		final JRMapCollectionDataSource dataSource =
-			new JRMapCollectionDataSource(MapHelper.getMap(pInvoice));
-		final HashMap<String, String> parameter =
-			ParameterHelper.getParameters(pInvoice);
+		final JRMapCollectionDataSource dataSource = new JRMapCollectionDataSource(MapHelper.getMap(pInvoice));
+		final HashMap<String, String> parameter = ParameterHelper.getParameters(pInvoice);
+
+		JasperPrint jasperPrint = null;
+//		if (report == null) {
+//			log.error("stream not found: " + STREAM_INVOICE_A4_JASPER);
+//			return;
+//		}
 
 		// fill some parameter from Java code
-		final JasperPrint jasperPrint =
-			getJasperPrint(report, parameter, dataSource);
+//		jasperPrint = getJasperPrint(null, parameter, dataSource);
+		jasperPrint =
+				getJasperPrint(report, parameter, dataSource);
 
 		// export to pdf
 //			JasperExportManager.exportReportToPdfFile(jasperPrint,
@@ -139,7 +154,9 @@ public final class InvoicePrinter {
 //		 JasperPrintManager.printReport(jasperPrint, true);
 
 		// show print preview
-		JasperViewer.viewReport(jasperPrint, false);
+		if (jasperPrint != null) {
+			JasperViewer.viewReport(jasperPrint, false);
+		}
 		InvoiceUI.getGui().setBundle(bundle);
 	}
 }

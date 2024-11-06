@@ -28,6 +28,7 @@
 			<resource>
 				<directory>src</directory>
 				<includes>
+					<include>**/*.gif</include>
 					<include>**/*.groovy</include>
 					<include>**/*.properties</include>
 					<include>**/*.xml</include>

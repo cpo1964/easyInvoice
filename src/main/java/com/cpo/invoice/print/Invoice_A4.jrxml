@@ -154,7 +154,7 @@
 		<band/>
 	</title>
 	<pageHeader>
-		<band height="222" splitType="Prevent">
+		<band height="240" splitType="Prevent">
 			<textField>
 				<reportElement x="27" y="34" width="528" height="18"/>
 				<textElement textAlignment="Right">
@@ -269,22 +269,16 @@
 	</pageHeader>
 	<columnHeader>
 		<band height="26" splitType="Prevent">
-			<rectangle>
-				<reportElement x="27" y="13" width="528" height="12" backcolor="#E9E8E8"/>
-				<graphicElement>
-					<pen lineWidth="0.0"/>
-				</graphicElement>
-			</rectangle>
-			<line>
-				<reportElement key="line-2" x="27" y="13" width="528" height="1"/>
-			</line>
 			<textField isBlankWhenNull="false">
-				<reportElement key="staticText-1" x="27" y="0" width="528" height="13"/>
+				<reportElement key="textField" mode="Transparent" x="27" y="0" width="528" height="12"/>
 				<textElement>
-					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+					<font size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$P{TEXTBLOCK1}]]></textFieldExpression>
 			</textField>
+			<line>
+				<reportElement key="line-2" x="27" y="13" width="528" height="1"/>
+			</line>
 			<textField isBlankWhenNull="false">
 				<reportElement key="textField" mode="Transparent" x="27" y="14" width="18" height="12"/>
 				<textElement textAlignment="Center">

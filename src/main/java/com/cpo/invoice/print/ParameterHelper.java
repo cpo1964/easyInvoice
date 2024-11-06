@@ -145,6 +145,7 @@ public final class ParameterHelper {
 		}
 		if (tbCount == 1) {
 			parameter.put("TEXTBLOCK2", "--");
+			parameter.put("TEXTBLOCK2", TextblockHelper.getTextblockData().get(0).getTEXT());
 		}
 	}
 

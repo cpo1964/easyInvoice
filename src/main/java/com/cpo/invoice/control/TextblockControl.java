@@ -160,10 +160,10 @@ public final class TextblockControl {
 	 * @return the next tb
 	 */
 	private static TEXTBLOCK getNextTB(final TEXTBLOCK pTB, final int diff) {
-		Session session = com.cpo.invoice.util.HibernateHelper.getInstance().getSession();
 		final String max = getMaxNr();
 		final TEXTBLOCKDAOimpl dao = TEXTBLOCKDAOimpl.getInstance();
-		final Transaction tx = session.beginTransaction();
+//		Session session = com.cpo.invoice.util.HibernateHelper.getInstance().getSession();
+		final Transaction tx = com.cpo.invoice.util.HibernateHelper.getInstance().getSession().beginTransaction();
 		int nr = diff;
 		String nrStr = "";
 		TEXTBLOCK nextTB = null;
@@ -175,7 +175,7 @@ public final class TextblockControl {
 			noMinMax = CommonHelper.getNoMinMax(nrStr);
 		}
 		tx.commit();
-		session.close();
+		com.cpo.invoice.util.HibernateHelper.getInstance().getSession().close();
 		return nextTB;
 	}
 

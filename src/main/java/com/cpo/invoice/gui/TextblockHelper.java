@@ -7,7 +7,6 @@ import com.cpo.invoice.control.TextblockControl;
 import com.cpo.invoice.model.INVOICE;
 import com.cpo.invoice.model.TEXTBLOCK;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class TextblockHelper.
  */
@@ -225,15 +224,15 @@ public final class TextblockHelper {
 		setSelectedItem(textblock);
 		if (textblock != null) {
 			setTextblockToGui(textblock, invoiceNr);
-			InvoiceUI.getGui().getJButtonAddInvoiceTB().setText(
-					InvoiceUI.getGui().getBundleValueByKey("btn.Copy"));
+			String text = InvoiceUI.getGui().getBundleValueByKey("btn.Copy");
+			InvoiceUI.getGui().getJButtonAddInvoiceTB().setText(text);
 			InvoiceUI.getGui().getJButtonUpdateInvoiceTB().setEnabled(true);
 			InvoiceUI.getGui().getJButtonDeleteInvoiceTB().setEnabled(true);
 			InvoiceUI.getGui().getJButtonSaveTB().setEnabled(true);
 		} else {
 			setTextblockToGui(new TEXTBLOCK(), invoiceNr);
-			InvoiceUI.getGui().getJButtonAddInvoiceTB().setText(
-					InvoiceUI.getGui().getBundleValueByKey("btn.Add"));
+			String text = InvoiceUI.getGui().getBundleValueByKey("btn.Add");
+			InvoiceUI.getGui().getJButtonAddInvoiceTB().setText(text);
 			InvoiceUI.getGui().getJButtonUpdateInvoiceTB().setEnabled(false);
 			InvoiceUI.getGui().getJButtonDeleteInvoiceTB().setEnabled(false);
 			InvoiceUI.getGui().getJButtonSaveTB().setEnabled(false);
