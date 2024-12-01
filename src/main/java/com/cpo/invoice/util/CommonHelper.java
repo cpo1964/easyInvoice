@@ -43,7 +43,8 @@ public final class CommonHelper {
 		final DecimalFormat df = (DecimalFormat)DecimalFormat
 				.getInstance(Locale.GERMAN);
 		try {
-			df.applyPattern("#.###.##0,00");
+			df.applyPattern("#.00");
+//			df.applyPattern("#.###.##.00");
 		} catch (Exception e) {
 			// log.debug(e.getMessage());
 		}
