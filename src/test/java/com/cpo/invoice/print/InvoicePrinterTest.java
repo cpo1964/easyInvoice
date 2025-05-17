@@ -9,6 +9,7 @@ import com.cpo.invoice.util.CommonHelper;
 
 public class InvoicePrinterTest {
 
+	private static final String _30_04_2025 = "30.04.2025";
 	private static HashMap<String, String> parameter = new HashMap<String, String>();
 
 	/**
@@ -17,7 +18,7 @@ public class InvoicePrinterTest {
 	 * @param args the arguments
 	 */
 	public static void main(final String[] args) {
-		String date = "30.04.2025";
+		String date = _30_04_2025;
 		Collection map = getMap();
 		HashMap<String, String> params = getParameters();
 		InvoicePrinter.printInvoice(date, map, params, false);
@@ -150,7 +151,7 @@ public class InvoicePrinterTest {
 	 * @param pInvoice the invoice
 	 */
 	private static void addTextblockParameters() {
-		String tbStr1 = "Berechnungszeitraum: 01.04.2025 - 30.04.2025";
+		String tbStr1 = "Berechnungszeitraum: 01.04.2025 - " + _30_04_2025;
 		String tbStr2 = "alles ok";
 		parameter.put("TEXTBLOCK" + 1, tbStr1);
 		parameter.put("TEXTBLOCK" + 2, tbStr2);
@@ -175,7 +176,7 @@ public class InvoicePrinterTest {
 		parameter.put("LBL_INV_NR", "Rechnungs-Nr.");
 		parameter.put("TXT_INV_NR", "R25.004");
 		parameter.put("LBL_INV_DATE", "Rechnungsdatum");
-		parameter.put("TXT_INV_DATE", "30.04.2025");
+		parameter.put("TXT_INV_DATE", _30_04_2025);
 		parameter.put("LBL_PAY_UNTIL", "Zahlbar bis");
 		parameter.put("TXT_PAY_UNTIL", "30.05.2025");
 	}
