@@ -156,11 +156,13 @@ public final class SettingsHelper {
 	 */
 	public static void setBundle(final String lang) {
 		if (DEUTSCH.equals(lang)) {
+			InvoiceUI.getGui();
 			InvoiceUI.getGui().setBundle(ResourceBundle.getBundle(
-					InvoiceUI.getGui().getResource(), new Locale("de", "AT")));
+					InvoiceUI.getResource(), new Locale("de", "AT")));
 		} else {
+			InvoiceUI.getGui();
 			InvoiceUI.getGui().setBundle(ResourceBundle.getBundle(
-					InvoiceUI.getGui().getResource(), new Locale("en")));
+					InvoiceUI.getResource(), new Locale("en")));
 		}
 	}
 
@@ -169,7 +171,8 @@ public final class SettingsHelper {
 	 *
 	 * @return the tax data model
 	 */
-	private static ComboBoxModel getTaxDataModel() {
+	@SuppressWarnings("rawtypes")
+	private static ComboBoxModel<?> getTaxDataModel() {
 		setTaxData(new String[3]);
 		// taxData[0] = "";
 		getTaxData()[0] = "20";
@@ -183,13 +186,14 @@ public final class SettingsHelper {
 	 *
 	 * @return the currency data model
 	 */
-	private static ComboBoxModel getCurrencyDataModel() {
+	@SuppressWarnings("rawtypes")
+	private static ComboBoxModel<?> getCurrencyDataModel() {
 		currencyData = new String[4];
 		// taxData[0] = "";
-		currencyData[0] = "EUR / " + ParameterHelper.EUR_CHAR; // Euro �
+		currencyData[0] = "EUR / " + ParameterHelper.EUR_CHAR; // Euro
 		currencyData[1] = "CHF"; // Schweizer Franken CHF
-		currencyData[2] = "USD / " + ParameterHelper.USD_CHAR; // US-Dollar $
-		currencyData[3] = "GBP / " + ParameterHelper.GBP_CHAR; // Britisches Pfund �
+		currencyData[2] = "USD / " + ParameterHelper.USD_CHAR; // US-Dollar
+		currencyData[3] = "GBP / " + ParameterHelper.GBP_CHAR; // Britisches Pfund
 		return new DefaultComboBoxModel(currencyData);
 	}
 
@@ -224,7 +228,8 @@ public final class SettingsHelper {
 	 *
 	 * @return the language data model
 	 */
-	private static ComboBoxModel getLanguageDataModel() {
+	@SuppressWarnings("rawtypes")
+	private static ComboBoxModel<?> getLanguageDataModel() {
 		languageData = new String[2];
 		// languageData[0] = "";
 		languageData[0] = DEUTSCH;

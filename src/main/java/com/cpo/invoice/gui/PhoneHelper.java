@@ -133,7 +133,8 @@ public class PhoneHelper {
 	 *
 	 * @return the phone type data model
 	 */
-	public static ComboBoxModel getPhoneTypeDataModel() {
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public static ComboBoxModel<?> getPhoneTypeDataModel() {
 		String[] phoneTypeData = null;
 		phoneTypeData = new String[3];
 		phoneTypeData[0] = 

@@ -7,4 +7,9 @@ import com.cpo.invoice.model.ADRESS;
  */
 public class ADRESSext extends ADRESS {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 }

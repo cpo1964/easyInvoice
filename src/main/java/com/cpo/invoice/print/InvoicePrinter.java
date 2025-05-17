@@ -4,9 +4,9 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
@@ -19,6 +19,7 @@ import com.cpo.invoice.model.INVOICE;
 
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.data.JRMapCollectionDataSource;
@@ -123,8 +124,24 @@ public final class InvoicePrinter {
 	 * @param pInvoice the invoice
 	 */
 	public static void printInvoice(final INVOICE pInvoice) {
-		final ResourceBundle bundle = InvoiceUI.getGui().getBundle();
 		SettingsHelper.setBundle(pInvoice.getLANGUAGE());
+		final String invoiceDate = pInvoice.getINV_DATE();
+		Collection invoiceMap = MapHelper.getMap(pInvoice);
+		final HashMap<String, String> invoiceParameters = ParameterHelper.getParameters(pInvoice);
+
+		printInvoice(invoiceDate, invoiceMap, invoiceParameters, true);
+	}
+
+	/**
+	 * Prints the invoice.
+	 *
+	 * @param invoiceDate the invoice date
+	 * @param invoiceMap the invoice map
+	 * @param parameter the parameter
+	 */
+	static void printInvoice(final String invoiceDate, Collection invoiceMap,
+			final HashMap<String, String> invoiceParameters, boolean showPreview) {
+		final ResourceBundle bundle = InvoiceUI.getGui().getBundle();
 		final InvoicePrinter pr = new InvoicePrinter();
 		String stream = STREAM_INVOICE_A4_JASPER;
 		InputStream report = pr.getClass().getResourceAsStream(stream);
@@ -132,31 +149,29 @@ public final class InvoicePrinter {
 			stream = "src" + STREAM_INVOICE_A4_JASPER;
 			report = pr.getClass().getResourceAsStream(stream);
 		}
-		final JRMapCollectionDataSource dataSource = new JRMapCollectionDataSource(MapHelper.getMap(pInvoice));
-		final HashMap<String, String> parameter = ParameterHelper.getParameters(pInvoice);
-
-		JasperPrint jasperPrint = null;
-//		if (report == null) {
-//			log.error("stream not found: " + STREAM_INVOICE_A4_JASPER);
-//			return;
-//		}
+		final JRMapCollectionDataSource invoiceDataSource = new JRMapCollectionDataSource(invoiceMap);
 
 		// fill some parameter from Java code
-//		jasperPrint = getJasperPrint(null, parameter, dataSource);
-		jasperPrint =
-				getJasperPrint(report, parameter, dataSource);
+		JasperPrint jasperPrint =
+				getJasperPrint(report, invoiceParameters, invoiceDataSource);
 
 		// export to pdf
-//			JasperExportManager.exportReportToPdfFile(jasperPrint,
-//					ParameterHelper.TXT_INV_DATE + ".pdf");
+		try {
+			JasperExportManager.exportReportToPdfFile(jasperPrint,
+					ParameterHelper.TXT_INV_DATE + "_" + invoiceDate + ".pdf");
+		} catch (JRException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		// show print preview
+		if (jasperPrint != null && showPreview) {
+			JasperViewer.viewReport(jasperPrint, false);
+		}
 
 		// show standard print dialog
 //		 JasperPrintManager.printReport(jasperPrint, true);
 
-		// show print preview
-		if (jasperPrint != null) {
-			JasperViewer.viewReport(jasperPrint, false);
-		}
 		InvoiceUI.getGui().setBundle(bundle);
 	}
 }

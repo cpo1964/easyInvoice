@@ -227,4 +227,12 @@ public class INVOICE_POSITION implements Comparable<Object>, java.io.Serializabl
 		this.id = id;
 	}
 
+	public java.beans.PropertyChangeSupport getPropertySupport() {
+		return propertySupport;
+	}
+
+	public void setPropertySupport(java.beans.PropertyChangeSupport propertySupport) {
+		this.propertySupport = propertySupport;
+	}
+
 }

@@ -11,7 +11,6 @@ import com.cpo.invoice.model.INVOICE;
 import com.cpo.invoice.model.TEXTBLOCK;
 import com.cpo.invoice.util.CommonHelper;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ParameterHelper.
  */
@@ -25,6 +24,8 @@ public final class ParameterHelper {
 
 	/** The Constant USD_CHAR. */
 	public static final char USD_CHAR = '\u0024';
+
+	public static final String TXT_INV_DATE = "Invoice";
 
 	/** The parameter. */
 	private static HashMap<String, String> parameter; // default null

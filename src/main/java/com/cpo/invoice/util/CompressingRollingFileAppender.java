@@ -103,8 +103,7 @@ public final class CompressingRollingFileAppender extends FileAppender {
 		final File currentFile = new File(currentFileName);
 		final File zipFile = new File(currentFileName + "." +
 				dateFormat.format(new Date()) + ".gz");
-		try {
-			final FileInputStream stream = new FileInputStream(currentFile);
+		try (FileInputStream stream = new FileInputStream(currentFile)) {
 			final byte[] content = new byte[stream.available()];
 			stream.read(content);
 			final GZIPOutputStream gzipOutputStream = new GZIPOutputStream(

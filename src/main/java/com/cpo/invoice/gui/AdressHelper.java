@@ -10,14 +10,13 @@ import com.cpo.invoice.model.ADRESS;
 import com.cpo.invoice.model.CUSTOMER;
 import com.cpo.invoice.util.StringHelper;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class AdressHelper.
  */
 public class AdressHelper {
 
 	/** The adress model. */
-	protected static ComboBoxModel adressModel = null;
+	protected static ComboBoxModel<?> adressModel = null;
 
 	/** The selected adress. */
 	protected static ADRESS selectedAdress = null;

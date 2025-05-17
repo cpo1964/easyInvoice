@@ -5,7 +5,6 @@ import java.util.Vector;
 
 import org.hibernate.Criteria;
 import org.hibernate.FetchMode;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.Example;

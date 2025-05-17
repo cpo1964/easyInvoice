@@ -803,7 +803,7 @@ public class InvoiceGenUI {
 	 */
 	public JList getJListAdresses() {
 		if (jListAdresses == null) {
-			jListAdresses = new JList();
+			jListAdresses = new JList<Object>();
 			jListAdresses.setBounds(new Rectangle(0, 0, 691, 208));
 			jListAdresses.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		}
@@ -927,7 +927,7 @@ public class InvoiceGenUI {
 	 */
 	public JList getJListBanks() {
 		if (jListBanks == null) {
-			jListBanks = new JList();
+			jListBanks = new JList<Object>();
 			jListBanks.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		}
 		return jListBanks;
@@ -1103,9 +1103,10 @@ public class InvoiceGenUI {
 	 *
 	 * @return javax.swing.JList
 	 */
+	@SuppressWarnings("rawtypes")
 	public JList getJListArticles() {
 		if (jListArticles == null) {
-			jListArticles = new JList();
+			jListArticles = new JList<Object>();
 			jListArticles.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		}
 		return jListArticles;
@@ -1283,7 +1284,7 @@ public class InvoiceGenUI {
 	 */
 	public JList getJListCustomers() {
 		if (jListCustomers == null) {
-			jListCustomers = new JList();
+			jListCustomers = new JList<Object>();
 			jListCustomers.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			jListCustomers.setBounds(new Rectangle(0, 0, 671, 208));
 		}
@@ -1366,6 +1367,7 @@ public class InvoiceGenUI {
 	 *
 	 * @return javax.swing.JList
 	 */
+	@SuppressWarnings("rawtypes")
 	public JList getJListInvoicePositions() {
 		if (jListInvoicePositions == null) {
 			jListInvoicePositions = new JList();
@@ -1454,6 +1456,7 @@ public class InvoiceGenUI {
 	 *
 	 * @return javax.swing.JComboBox
 	 */
+	@SuppressWarnings("rawtypes")
 	public JComboBox getJComboBoxPositionArticle() {
 		if (jComboBoxPositionArticle == null) {
 			jComboBoxPositionArticle = new JComboBox();
@@ -1637,9 +1640,10 @@ public class InvoiceGenUI {
 	 *
 	 * @return javax.swing.JList
 	 */
+	@SuppressWarnings("rawtypes")
 	public JList getJListInvoices() {
 		if (jListInvoices == null) {
-			jListInvoices = new JList();
+			jListInvoices = new JList<Object>();
 			jListInvoices.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		}
 		return jListInvoices;
@@ -1953,6 +1957,7 @@ public class InvoiceGenUI {
 	 *
 	 * @return javax.swing.JList
 	 */
+	@SuppressWarnings("rawtypes")
 	public JList getJListInvoiceTBs() {
 		if (jListInvoiceTBs == null) {
 			jListInvoiceTBs = new JList();
@@ -2319,6 +2324,7 @@ public class InvoiceGenUI {
 	 *
 	 * @return javax.swing.JList
 	 */
+	@SuppressWarnings("rawtypes")
 	public JList getJListPhones() {
 		if (jListPhones1 == null) {
 			jListPhones1 = new JList();
@@ -2455,6 +2461,7 @@ public class InvoiceGenUI {
 	 *
 	 * @return javax.swing.JComboBox
 	 */
+	@SuppressWarnings("rawtypes")
 	public JComboBox getJComboBoxCurrency() {
 		if (jComboBoxCurrency == null) {
 			jComboBoxCurrency = new JComboBox();

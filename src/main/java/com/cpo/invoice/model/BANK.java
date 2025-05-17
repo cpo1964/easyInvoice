@@ -246,6 +246,14 @@ public class BANK implements java.io.Serializable {
 		this.id = id;
 	}
 
+	public java.beans.PropertyChangeSupport getPropertySupport() {
+		return propertySupport;
+	}
+
+	public void setPropertySupport(java.beans.PropertyChangeSupport propertySupport) {
+		this.propertySupport = propertySupport;
+	}
+
 //	@Override
 //	public int compareTo(Object obj) {
 //		return 0;

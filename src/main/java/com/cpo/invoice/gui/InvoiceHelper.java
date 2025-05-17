@@ -7,8 +7,6 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.Vector;
 
-import javax.swing.ListModel;
-
 import org.apache.log4j.Logger;
 
 import com.cpo.invoice.control.InvoiceControl;
@@ -331,8 +329,9 @@ public final class InvoiceHelper {
 		if (getSelectedInvoice().getId() == null) {
 			return;
 		}
+		long id = getSelectedInvoice().getId();
 		final INVOICE invoice = (INVOICE)DaoHelper.getByID(
-				(InterfaceDAO) INVOICEDAOimpl.getInstance(), getSelectedInvoice().getId(), true);
+				(InterfaceDAO) INVOICEDAOimpl.getInstance(), id, true);
 		if (invoice != null) {
 			InvoicePrinter.printInvoice(invoice);
 		}

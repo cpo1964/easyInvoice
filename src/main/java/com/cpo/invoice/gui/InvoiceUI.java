@@ -215,7 +215,8 @@ public final class InvoiceUI extends InvoiceGenUI implements FocusListener {
 				System.exit(0);
 			}
 		});
-		getGui().setBundle(ResourceBundle.getBundle(getGui().getResource()));
+		getGui();
+		getGui().setBundle(ResourceBundle.getBundle(InvoiceUI.getResource()));
 		getGui().initLabels();
 		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		SettingsHelper.init();

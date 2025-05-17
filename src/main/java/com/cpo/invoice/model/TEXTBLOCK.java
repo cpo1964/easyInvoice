@@ -180,4 +180,12 @@ public class TEXTBLOCK implements Comparable<Object>, java.io.Serializable  {
 		this.id = id;
 	}
 
+	public java.beans.PropertyChangeSupport getPropertySupport() {
+		return propertySupport;
+	}
+
+	public void setPropertySupport(java.beans.PropertyChangeSupport propertySupport) {
+		this.propertySupport = propertySupport;
+	}
+
 }

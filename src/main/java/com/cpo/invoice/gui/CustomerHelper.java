@@ -7,7 +7,6 @@ import java.util.Vector;
 import javax.swing.ComboBoxModel;
 
 import com.cpo.invoice.control.CustomerControl;
-import com.cpo.invoice.dao.CUSTOMERDAO;
 import com.cpo.invoice.dao.DaoHelper;
 import com.cpo.invoice.dao.InterfaceDAO;
 import com.cpo.invoice.dao.impl.CUSTOMERDAOimpl;
@@ -29,10 +28,10 @@ public final class CustomerHelper {
 	protected static Vector<CUSTOMER> senderData = new Vector<CUSTOMER>();
 
 	/** The bank model. */
-	protected static ComboBoxModel bankModel = null;
+	protected static ComboBoxModel<?> bankModel = null;
 
 	/** The customer adress model. */
-	protected static ComboBoxModel customerAdressModel = null;
+	protected static ComboBoxModel<?> customerAdressModel = null;
 
 	/** The customer data. */
 	private static Vector<CUSTOMER> customerData = new Vector<CUSTOMER>();

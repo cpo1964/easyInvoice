@@ -5,7 +5,6 @@ import java.util.Vector;
 import com.cpo.invoice.control.ArticleControl;
 import com.cpo.invoice.dao.DaoHelper;
 import com.cpo.invoice.dao.InterfaceDAO;
-import com.cpo.invoice.dao.impl.ADRESSDAOimpl;
 import com.cpo.invoice.dao.impl.ARTICLEDAOimpl;
 import com.cpo.invoice.model.ARTICLE;
 import com.cpo.invoice.util.StringHelper;

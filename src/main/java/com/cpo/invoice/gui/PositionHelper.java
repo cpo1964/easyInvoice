@@ -31,7 +31,7 @@ public class PositionHelper {
 		new Vector<INVOICE_POSITION>();
 	
 	/** The pos article model. */
-	private static ComboBoxModel posArticleModel = null;
+	private static ComboBoxModel<Serializable> posArticleModel = null;
 
 	/**
 	 * Gets the selected item.
@@ -75,7 +75,7 @@ public class PositionHelper {
 	 *
 	 * @return the pos article model
 	 */
-	public static ComboBoxModel getPosArticleModel() {
+	public static ComboBoxModel<Serializable> getPosArticleModel() {
 		return posArticleModel;
 	}
 
@@ -84,7 +84,7 @@ public class PositionHelper {
 	 *
 	 * @param obj the new pos article model
 	 */
-	public static void setPosArticleModel(ComboBoxModel obj) {
+	public static void setPosArticleModel(ComboBoxModel<Serializable> obj) {
 		posArticleModel = obj;
 	}
 
@@ -93,7 +93,8 @@ public class PositionHelper {
 	 *
 	 * @return the combo box model
 	 */
-	public static ComboBoxModel fillPosArticleModel() {
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public static ComboBoxModel<Serializable> fillPosArticleModel() {
 		Vector<Serializable> v = new Vector<Serializable>();
 		v.add("");
 		v.addAll(ArticleHelper.getArticleData());
@@ -103,6 +104,7 @@ public class PositionHelper {
 	/**
 	 * Inits the.
 	 */
+	@SuppressWarnings("unchecked")
 	protected static void init() {
 		InvoiceUI.getGui().getTfInvoicePositionNr().setDocument(
 				CommonHelper.getNurZahlenPlainDocument());
